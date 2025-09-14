@@ -70,7 +70,7 @@ df_x6 <- data.frame(Prof_Foton,
 
 ### ------------------------- AAA 0 mm + Gamma  ------------------------- #####
 
-gama_values_AAA_0 <- calc_gama(Prof_Foton, pdp_x6_0mm, pdp_tps_AAA_0mm)
+gama_values_AAA_0 <- calc_gamma_index(Prof_Foton, pdp_x6_0mm, pdp_tps_AAA_0mm)
 gama <- gama_values_AAA_0$gama
 gama <- gama * 100
 
@@ -98,20 +98,20 @@ AAA_0
 
 ### ------------------------- AXB 0 mm + Gamma  ------------------------- #####
 
-gama_values_AXB_0 <- calc_gama(Prof_Foton, pdp_x6_0mm, pdp_tps_AXB_0mm)
+gama_values_AXB_0 <- calc_gamma_index(Prof_Foton, pdp_x6_0mm, pdp_tps_AXB_0mm)
 gama <- gama_values_AXB_0$gama
 gama <- gama * 100
 
 AXB_0 <- ggplot(df_x6) +
-  geom_point(aes(x = Prof_Foton, y = pdp_x6_0mm, color = "Sem bólus"),
+  geom_point(aes(x = Prof_Foton, y = pdp_x6_0mm, color = "Sem Bólus"),
              size = 1.5) + 
-  geom_line(aes(x = Prof_Foton, y = pdp_tps_AXB_0mm, color = "Sem bólus"),
+  geom_line(aes(x = Prof_Foton, y = pdp_tps_AXB_0mm, color = "Sem Bólus"),
             size = 0.6) + 
   geom_point(aes(x = Prof_Foton, y = gama, color = "Indice Gama"),
              size = 1.1) + 
   geom_line(aes(x = Prof_Foton, y = gama, color = "Indice Gama"),
             linewidth = 0.6) + 
-  scale_color_manual(values = c("Sem bólus" = "orange",
+  scale_color_manual(values = c("Sem Bólus" = "orange",
                                 "Indice Gama" = "green")) +
   labs(title = 'PDP fótons 6 MV: Medido x Cálculo AXB sem bólus',
        y = 'PDP [%]',
@@ -125,7 +125,7 @@ AXB_0
 
 ### ------------------------- AAA 5 mm + Gamma  ------------------------- #####
 
-gama_values_AAA_5 <- calc_gama(Prof_Foton, pdp_x6_5mm, pdp_tps_AAA_5mm)
+gama_values_AAA_5 <- calc_gamma_index(Prof_Foton, pdp_x6_5mm, pdp_tps_AAA_5mm)
 gama <- gama_values_AAA_5$gama
 gama <- gama * 100
 
@@ -153,7 +153,7 @@ AAA_5
 
 ### ------------------------- AXB 5 mm + Gamma  ------------------------- #####
 
-gama_values_AXB_5 <- calc_gama(Prof_Foton, pdp_x6_5mm, pdp_tps_AXB_5mm)
+gama_values_AXB_5 <- calc_gamma_index(Prof_Foton, pdp_x6_5mm, pdp_tps_AXB_5mm)
 gama <- gama_values_AXB_5$gama
 gama <- gama * 100
 
@@ -180,7 +180,7 @@ AXB_5
 
 ### ------------------------- AAA 10 mm + Gamma  ------------------------- #####
 
-gama_values_AAA_10 <- calc_gama(Prof_Foton, pdp_x6_10mm, pdp_tps_AAA_10mm)
+gama_values_AAA_10 <- calc_gamma_index(Prof_Foton, pdp_x6_10mm, pdp_tps_AAA_10mm)
 gama <- gama_values_AAA_10$gama
 gama <- gama * 100
 
@@ -207,7 +207,7 @@ AAA_10
 
 ### ------------------------- AXB 10 mm + Gamma  ------------------------- #####
 
-gama_values_AXB_10 <- calc_gama(Prof_Foton, pdp_x6_10mm, pdp_tps_AXB_10mm)
+gama_values_AXB_10 <- calc_gamma_index(Prof_Foton, pdp_x6_10mm, pdp_tps_AXB_10mm)
 gama <- gama_values_AXB_10$gama
 gama <- gama * 100
 
@@ -331,5 +331,6 @@ Fotons_AXBD <- ggplot(df_Fotons_D) +
        color = 'Legenda')
 
 Fotons_AXBD
+
 
 
