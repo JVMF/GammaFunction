@@ -58,7 +58,7 @@ E9_B10_EMC <- c(91.269123, 93.260600, 94.148795, 95.224391, 95.980086, 97.299575
                   54.371819, 47.428548, 18.495324, 4.023643, 1.626236, 1.355532, 1.426461, 1.226951, 1.271348, 1.098040, 1.186438)
 
 #### DATAFRAME START
-df_teste <- data.frame(Prof_E,
+df_E <- data.frame(Prof_E,
                        pdp_E6_0mm,
                        pdp_E6_5mm,
                        pdp_E6_10mm,
@@ -74,11 +74,11 @@ df_teste <- data.frame(Prof_E,
                        )
 
 ## ---------------- E6 BOLUS 0 mm
-gama_values_E6_B0 <- calc_gama(Prof_E, pdp_E6_0mm, E6_B0_EMC)
+gama_values_E6_B0 <- calc_gamma_index(Prof_E, pdp_E6_0mm, E6_B0_EMC)
 gama <- gama_values_E6_B0$gama
 gama <- gama * 100
 
-E6_B0 <- ggplot(df_teste) +
+E6_B0 <- ggplot(df_E) +
   geom_point(aes(x = Prof_E, y = pdp_E6_0mm, color = "Sem Bólus"),
              size = 1.5) + 
   geom_line(aes(x = Prof_E, y = E6_B0_EMC, color = "Sem Bólus"),
@@ -101,11 +101,11 @@ E6_B0
 
 
 ## ---------------- E6 BOLUS 5 mm
-gama_values_E6_B5 <- calc_gama(Prof_E, pdp_E6_5mm, E6_B5_EMC)
+gama_values_E6_B5 <- calc_gamma_index(Prof_E, pdp_E6_5mm, E6_B5_EMC)
 gama <- gama_values_E6_B5$gama
 gama <- gama * 100
 
-E6_B5 <- ggplot(df_teste) +
+E6_B5 <- ggplot(df_E) +
   geom_point(aes(x = Prof_E, y = pdp_E6_5mm, color = "Bólus 5 mm"),
              size = 1.5) + 
   geom_line(aes(x = Prof_E, y = E6_B5_EMC, color = "Bólus 5 mm"),
@@ -127,11 +127,11 @@ gama_values_E6_B5
 E6_B5
 
 ## ---------------- E6 BOLUS 10 mm
-gama_values_E6_B10 <- calc_gama(Prof_E, pdp_E6_10mm, E6_B10_EMC)
+gama_values_E6_B10 <- calc_gamma_index(Prof_E, pdp_E6_10mm, E6_B10_EMC)
 gama <- gama_values_E6_B10$gama
 gama <- gama * 100
 
-E6_B10 <- ggplot(df_teste) +
+E6_B10 <- ggplot(df_E) +
   geom_point(aes(x = Prof_E, y = pdp_E6_10mm, color = "Bólus 10 mm"),
              size = 1.5) + 
   geom_line(aes(x = Prof_E, y = E6_B10_EMC, color = "Bólus 10 mm"),
@@ -154,11 +154,11 @@ gama_values_E6_B10
 E6_B10
 
 ## ---------------- E9 BOLUS 0 mm
-gama_values_E9_B0 <- calc_gama(Prof_E, pdp_9E_0mm, E9_B0_EMC)
+gama_values_E9_B0 <- calc_gamma_index(Prof_E, pdp_9E_0mm, E9_B0_EMC)
 gama <- gama_values_E9_B0$gama
 gama <- gama * 100
 
-E9_B0 <- ggplot(df_teste) +
+E9_B0 <- ggplot(df_E) +
   geom_point(aes(x = Prof_E, y = pdp_9E_0mm, color = "Sem Bólus"),
              size = 1.5) + 
   geom_line(aes(x = Prof_E, y = E9_B0_EMC, color = "Sem Bólus"),
@@ -180,11 +180,11 @@ gama_values_E9_B0
 E9_B0
 
 ## ---------------- E9 BOLUS 5 mm
-gama_values_E9_B5 <- calc_gama(Prof_E, pdp_9E_5mm, E9_B5_EMC)
+gama_values_E9_B5 <- calc_gamma_index(Prof_E, pdp_9E_5mm, E9_B5_EMC)
 gama <- gama_values_E9_B5$gama
 gama <- gama * 100
 
-E9_B5 <- ggplot(df_teste) +
+E9_B5 <- ggplot(df_E) +
   geom_point(aes(x = Prof_E, y = pdp_9E_5mm, color = "Bólus 5 mm"),
              size = 1.5) + 
   geom_line(aes(x = Prof_E, y = E9_B5_EMC, color = "Bólus 5 mm"),
@@ -206,11 +206,11 @@ gama_values_E9_B5
 E9_B5
 
 ## ---------------- E9 BOLUS 10 mm
-gama_values_E9_B10 <- calc_gama(Prof_E, pdp_9E_10mm, E9_B10_EMC)
+gama_values_E9_B10 <- calc_gamma_index(Prof_E, pdp_9E_10mm, E9_B10_EMC)
 gama <- (gama_values_E9_B10$gama)
 gama <- gama * 100
 
-E9_B10 <- ggplot(df_teste) +
+E9_B10 <- ggplot(df_E) +
   geom_point(aes(x = Prof_E, y = pdp_9E_10mm, color = "Bólus 10 mm"),
              size = 1.5) + 
   geom_line(aes(x = Prof_E, y = E9_B10_EMC, color = "Bólus 10 mm"),
@@ -232,7 +232,7 @@ gama_values_E9_B10
 E9_B10
 
 ### With / Without Bolus E6 ----------------- ###
-Bolus_E6 <- ggplot(df_teste) +
+Bolus_E6 <- ggplot(df_E) +
   geom_point(aes(x = Prof_E,
                  y = pdp_E6_0mm,color = "Sem Bólus"),
              size = 1.0) + 
@@ -254,7 +254,7 @@ Bolus_E6 <- ggplot(df_teste) +
 Bolus_E6
 
 ### With / Without Bolus E9 ----------------- ###
-Bolus_E9 <- ggplot(df_teste) +
+Bolus_E9 <- ggplot(df_E) +
   geom_point(aes(x = Prof_E,
                  y = pdp_9E_0mm,color = "Sem Bólus"),
              size = 1.0) + 
@@ -371,3 +371,4 @@ E9_D <- ggplot(df_E_D) +
        x = 'Profundidade [mm]', 
        color = 'Legenda')
 E9_D 
+
